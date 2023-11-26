@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/receipeFragment">
+
+    <fragment
+        android:id="@+id/receipeListFragment"
+        android:name="com.example.democompose.presentation.ui.recipeList.ReceipeListFragment"
+        android:label="ReceipeListFragment" >
+
+    </fragment>
+
+
+    <fragment
+                                android:id="@+id/receipeFragment"
+                                android:name="com.example.democompose.presentation.ui.recipe.ReceipeFragment"
+                                android:label="ReceipeFragment" />
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.democompose.presentation.ui.MainActivity"
+        android:label="MainActivity" />
+</navigation>
