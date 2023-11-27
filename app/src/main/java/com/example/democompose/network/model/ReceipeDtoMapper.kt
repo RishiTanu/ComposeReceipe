@@ -4,7 +4,6 @@ import com.example.democompose.domain.data.data.Recipe
 import com.example.democompose.domain.util.DomainMapper
 
 class ReceipeDtoMapper : DomainMapper<RecipeDto,Recipe>{
-
     override fun mapToDomainModel(model: RecipeDto): Recipe {
         return Recipe(
             id = model.pk,
@@ -38,7 +37,9 @@ class ReceipeDtoMapper : DomainMapper<RecipeDto,Recipe>{
     }
 
     fun toDomainList(initial : List<RecipeDto>) : List<Recipe>{
-        return initial.map { mapToDomainModel(it) }
+        return initial.map {
+            mapToDomainModel(it)
+        }
     }
 
     fun  fromDomainList(initial: List<Recipe>) : List<RecipeDto>{

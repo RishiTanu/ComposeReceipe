@@ -20,6 +20,7 @@ import androidx.lifecycle.ViewModel
 import androidx.navigation.findNavController
 import com.example.democompose.R
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class ReceipeListFragment : Fragment() {
@@ -32,19 +33,22 @@ class ReceipeListFragment : Fragment() {
     ): View {
         return  ComposeView(requireContext()).apply {
            setContent {
-               Column(modifier = Modifier.padding(16.dp)) {
-                   Text(text = "Happy Android",
-                   style = TextStyle(fontSize = 16.sp)
-                   )
-                   Spacer(modifier = Modifier.padding(top = 10.dp))
-                    Button(onClick = {
-                        findNavController().navigate(R.id.receipeFragment)
-                    }) {
-                        Text(text = "OnClick")
-                    }
-               }
+
            }
         }
     }
-
 }
+
+/*
+Column(modifier = Modifier.padding(16.dp)) {
+    Text(
+        text = "Happy Android",
+        style = TextStyle(fontSize = 16.sp)
+    )
+    Spacer(modifier = Modifier.padding(top = 10.dp))
+    Button(onClick = {
+        findNavController().navigate(R.id.receipeFragment)
+    }) {
+        Text(text = "OnClick")
+    }
+}*/

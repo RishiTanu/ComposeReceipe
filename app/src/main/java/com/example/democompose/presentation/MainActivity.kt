@@ -1,7 +1,8 @@
 package com.example.democompose.presentation.ui
 
 import android.os.Bundle
-import android.util.Log
+import android.os.Parcel
+import android.os.Parcelable
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -26,19 +27,22 @@ import androidx.compose.material3.Button
 import androidx.compose.ui.Alignment
 import com.example.democompose.R
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
+
 
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
+class MainActivity() : ComponentActivity(), Parcelable {
 
     private val TAG = "MainActivity"
 
-    @Inject
-    lateinit var moduleChar : String
+    constructor(parcel: Parcel) : this() {
+    }
+
+    /*@Inject
+    lateinit var moduleChar : String*/
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(TAG, "onCreate===== ${moduleChar}")
+        //Log.d(TAG, "onCreate===== ${moduleChar}")
 
         setContent {
             Column(
@@ -81,6 +85,24 @@ class MainActivity : ComponentActivity() {
                     }
                 }
             }
+        }
+    }
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<MainActivity> {
+        override fun createFromParcel(parcel: Parcel): MainActivity {
+            return MainActivity(parcel)
+        }
+
+        override fun newArray(size: Int): Array<MainActivity?> {
+            return arrayOfNulls(size)
         }
     }
 }

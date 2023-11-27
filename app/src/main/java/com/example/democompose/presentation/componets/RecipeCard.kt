@@ -23,7 +23,7 @@ import com.example.democompose.domain.data.data.Recipe
 
 
 @Composable
-fun recipeCard(
+fun RecipeCard(
     recipe: Recipe, onCLick: () -> Unit
 ) {
     Card(
@@ -48,18 +48,29 @@ fun recipeCard(
                 contentScale = ContentScale.Crop,
             )
         }
-        recipe.title.let {
+        recipe.title.let {title->
             Row(
-                modifier = Modifier.padding(top = 12.dp, bottom = 12.dp, start = 8.dp, end = 8.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 12.dp, bottom = 12.dp, start = 8.dp, end = 8.dp),
 
             ) {
-                Text(text = recipe.title,
+                Text(
+                    text = title,
                 modifier = Modifier
                     .fillMaxWidth(0.85f)
-                    .wrapContentWidth(Alignment.Start)
+                    .wrapContentWidth(Alignment.Start),
+                    style= MaterialTheme.typography.headlineSmall
+                )
+                Text(
+                    text = recipe.rating.toString(),
+                    modifier = Modifier
+                        .fillMaxWidth(0.85f)
+                        .wrapContentWidth(Alignment.Start)
+                        .align(Alignment.CenterVertically),
+                    style = MaterialTheme.typography.headlineSmall
                 )
             }
         }
     }
-
 }
